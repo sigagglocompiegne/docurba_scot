@@ -7,4 +7,21 @@ Une surface est considérée comme consommée d'un point de vue des espaces natu
 ## Méthodologie de détermination des surfaces au SCOT
 
 
+## Classes d'objet
 
+L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urbanisme_reg
+
+   `geo_scot_surface_urba` : table géographique des surfaces considérées comme déjà consommées au SCOT.
+   
+|Nom attribut | Définition | Type | Valeurs par défaut |
+|:---|:---|:---|:---|
+|insee|Code INSEE|character(5)| |
+|docurba|Présence d'un document d'urbanisme (PLUi,PLU,POS,CC)|boolean| |
+|ads_arc|Gestion de l'ADS par l'ARC|boolean| |
+|l_rev|Information sur la révision en cours ou non du document d'urbanisme|character varying(30)| |
+|l_daterev|Date de prescripiton de la révision|timestamp without time zone| |
+   
+   `geo_scot_surface_t0` : table géographique des hypothèses de localisation sommaire des surfaces à consommer au titre des surfaces approuvées au SCOT.
+   
+   
+   `geo_scot_surface_modif` : table géographique des modifications des hypothèses de localisation sommaire des surfaces à consommer entre la phase d'arrêt et l'approbation du SCOT.
