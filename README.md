@@ -16,7 +16,8 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
-   
+
+
    `geo_scot_surface_t0` : table géographique des hypothèses de localisation sommaire des surfaces à consommer au titre des surfaces approuvées au SCOT.
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
