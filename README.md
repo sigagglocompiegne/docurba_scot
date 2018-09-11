@@ -21,8 +21,8 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
   
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
-|type_modif|Type de modification|character varying(10)| |
-|type_surf|Type de surface|character varying(30)| |
+|type_modif|Type de modification [SUP;AJOUT]|character varying(10)| |
+|type_surf|Type de surface [habitat;activités;infrastructure - équipement]|character varying(30)| |
 |insee|Code INSEE|character(5)| |
 |sup|Superficie en ha|double precision| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
