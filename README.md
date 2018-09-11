@@ -17,6 +17,7 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |:---|:---|:---|:---|
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
+---
 
    `geo_scot_surface_t0` : table géographique des hypothèses de localisation sommaire des surfaces à consommer au titre des surfaces approuvées au SCOT.
 
@@ -29,6 +30,7 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |sup|Superficie en ha|double precision| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
+---
    
    `geo_scot_surface_modif` : table géographique des ajustements validés par les élus pour les hypothèses de localisation sommaire des surfaces à consommer entre la phase d'arrêt et l'approbation du SCOT.
   
@@ -39,3 +41,5 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |insee|Code INSEE|character(5)| |
 |sup|Superficie en ha|double precision| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+---
