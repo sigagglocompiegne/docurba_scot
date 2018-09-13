@@ -66,5 +66,16 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |code|Code de la liste énumérée relative au type de position de l'adresse|character varying(2)| |
 |valeur|Valeur de la liste énumérée relative au type de position de l'adresse|character varying(80)| |
 |definition|Définition de la liste énumérée relative au type de position de l'adresse|character varying(254)| |
-|inspire|Equivalence INSPIRE LocatorDesignatorTypeValue relative au type de position de l'adresse|character varying(80)| |
 
+Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occurences adaptées pour la conso de surface au SCOT)
+
+|Code|Valeur|
+|:---|:---|
+|00|Non renseigné|
+|01|Habitat|
+|02|Activité|
+|03|Destination mixte habitat/activité|
+|04|Loisirs et tourisme|
+|05|Equipement|
+|06|Parcelle|
+|99|Autre|
