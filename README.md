@@ -23,15 +23,21 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 ---
 
-   `geo_scot_[territoire]_surface_t0` : table géographique des hypothèses de localisation sommaire des surfaces à consommer au titre des surfaces approuvées au SCOT.
+   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes)
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
 |id|Identifiant|integer| |
-|operation|Nom de l'opération|character varying(10)| |
-|type_surf|Type de surface [habitat;activités;renouvellement urbain;infrastructure - équipement]|character varying(30)| |
+|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
+|destsurf|Destination d''usage de la surface à consommer|character varying(2)| |
+|typeconso|Type de consommation de surface|character varying(2)| |
 |insee|Code INSEE|character(5)| |
-|sup|Superficie en ha|double precision| |
+|commune|Libellé de la commune|character varying(150)| |
+|sup_ha|Superficie en ha|real| |
+|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
+|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
+|date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
+|date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
 ---
