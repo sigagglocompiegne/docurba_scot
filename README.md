@@ -36,6 +36,24 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 ---
 
+   `geo_scot_surf_suivi_conso_arcba` : Table géographique du suivi de la consommation des surfaces sur l'ARCBA.
+
+|Nom attribut | Définition | Type | Valeurs par défaut |
+|:---|:---|:---|:---|
+|id|Identifiant|integer| |
+|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
+|destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
+|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
+|annee_deb|Année de début de période de consommation de la surface|character varying(4)|'0000'::bpchar|
+|annee_fin|Année de fin de période de consommation de la surface|character varying(4)|'0000'::bpchar|
+|insee|Code INSEE|character(5)| |
+|commune|Libellé de la commune|character varying(150)| |
+|sup_ha|Superficie en ha|real| |
+|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
+|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
+|date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
+|date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
+|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
 ---
 
