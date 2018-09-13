@@ -29,8 +29,8 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |:---|:---|:---|:---|
 |id|Identifiant|integer| |
 |ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
-|destsurf|Destination d''usage de la surface à consommer|character varying(2)| |
-|typeconso|Type de consommation de surface|character varying(2)| |
+|destsurf|Destination d''usage de la surface à consommer|character varying(2)|'00'::bpchar|
+|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
 |insee|Code INSEE|character(5)| |
 |commune|Libellé de la commune|character varying(150)| |
 |sup_ha|Superficie en ha|real| |
