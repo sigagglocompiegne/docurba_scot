@@ -76,7 +76,6 @@ Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occuren
 |03|Destination mixte habitat/activité|
 |04|Loisirs et tourisme|
 |05|Equipement|
-|06|Parcelle|
 |99|Autre|
 
 ---
