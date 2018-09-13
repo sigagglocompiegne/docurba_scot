@@ -63,8 +63,8 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 |Nom attribut | Définition | Type  | Valeurs par défaut |
 |:---|:---|:---|:---|    
-|code|Code de la liste énumérée|character varying(2)| |
-|valeur|Valeur de la liste énumérée|character varying(80)| |
+|code|Code|character varying(2)| |
+|valeur|Valeur|character varying(80)| |
 
 Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occurences adaptées pour la conso de surface au SCOT)
 
@@ -85,9 +85,9 @@ Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occuren
 
 |Nom attribut | Définition | Type  | Valeurs par défaut |
 |:---|:---|:---|:---|    
-|code|Code de la liste énumérée|character varying(2)| |
-|valeur|Valeur de la liste énumérée|character varying(80)| |
-|definition|Définition de la liste énumérée|character varying(254)| |
+|code|Code|character varying(2)| |
+|valeur|Valeur|character varying(80)| |
+|definition|Définition|character varying(254)| |
 
 Valeurs possibles :
 
