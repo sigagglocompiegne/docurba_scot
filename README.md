@@ -57,22 +57,14 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 ---
 
-   `geo_scot_[territoire]_surface_urba` : table géographique des surfaces considérées comme déjà consommées au SCOT.
+## Liste de valeurs
 
-|Nom attribut | Définition | Type | Valeurs par défaut |
-|:---|:---|:---|:---|
-|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+`m_urbanisme_reg.lt_scot_destsurf` : Liste des valeurs permettant de décrire la destination de la surface
 
----
+|Nom attribut | Définition | Type  | Valeurs par défaut |
+|:---|:---|:---|:---|    
+|code|Code de la liste énumérée relative au type de position de l'adresse|character varying(2)| |
+|valeur|Valeur de la liste énumérée relative au type de position de l'adresse|character varying(80)| |
+|definition|Définition de la liste énumérée relative au type de position de l'adresse|character varying(254)| |
+|inspire|Equivalence INSPIRE LocatorDesignatorTypeValue relative au type de position de l'adresse|character varying(80)| |
 
-   `geo_scot_[territoire]_surface_modif` : table géographique des ajustements validés par les élus pour les hypothèses de localisation sommaire des surfaces à consommer entre la phase d'arrêt et l'approbation du SCOT.
-  
-|Nom attribut | Définition | Type | Valeurs par défaut |
-|:---|:---|:---|:---|
-|type_modif|Type de modification [SUP;AJOUT]|character varying(10)| |
-|type_surf|Type de surface [habitat;activités;renouvellement urbain;infrastructure - équipement]|character varying(30)| |
-|insee|Code INSEE|character(5)| |
-|sup|Superficie en ha|double precision| |
-|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
-
----
