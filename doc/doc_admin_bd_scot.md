@@ -7,7 +7,7 @@ Une surface est considérée comme consommée d'un point de vue des espaces natu
 ## Méthodologie de détermination des surfaces au SCOT
 
 
-## Classes d'objet
+### Classes d'objet
 
 Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
 Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées, ceci afin de ne pas dénaturer les données initiales héritées de ces territoires.
