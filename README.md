@@ -89,7 +89,7 @@ Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occuren
 |valeur|Valeur de la liste énumérée|character varying(80)| |
 |definition|Définition de la liste énumérée|character varying(254)| |
 
-Valeurs possibles (héritées du standard PLU du CNIG et restreintes aux occurences adaptées pour la conso de surface au SCOT)
+Valeurs possibles :
 
 |Code|Valeur|Definition|
 |:---|:---|:---|
