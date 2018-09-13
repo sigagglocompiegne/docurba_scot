@@ -21,7 +21,7 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
-|id|Identifiant|integer| |
+|id|Identifiant|bigint| |
 |ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
 |destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
 |typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
@@ -40,7 +40,7 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
-|id|Identifiant|integer| |
+|id|Identifiant|bigint| |
 |ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
 |destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
 |typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
