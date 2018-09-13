@@ -15,12 +15,6 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 
 L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urbanisme_reg
 
-   `geo_scot_[territoire]_surface_urba` : table géographique des surfaces considérées comme déjà consommées au SCOT.
-
-|Nom attribut | Définition | Type | Valeurs par défaut |
-|:---|:---|:---|:---|
-|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
-
 ---
 
    `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes)
@@ -41,7 +35,18 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
 ---
-   
+
+
+---
+
+   `geo_scot_[territoire]_surface_urba` : table géographique des surfaces considérées comme déjà consommées au SCOT.
+
+|Nom attribut | Définition | Type | Valeurs par défaut |
+|:---|:---|:---|:---|
+|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+---
+
    `geo_scot_[territoire]_surface_modif` : table géographique des ajustements validés par les élus pour les hypothèses de localisation sommaire des surfaces à consommer entre la phase d'arrêt et l'approbation du SCOT.
   
 |Nom attribut | Définition | Type | Valeurs par défaut |
