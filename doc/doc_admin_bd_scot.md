@@ -15,16 +15,19 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 
 L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urbanisme_reg
 
+
 ---
 
-   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes)
+
+
+
+---
+
+   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l''ARC (15 communes)
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
 |id|Identifiant|bigint| |
-|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
-|destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
-|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
 |insee|Code INSEE|character(5)| |
 |commune|Libellé de la commune|character varying(150)| |
 |sup_ha|Superficie en ha|real| |
@@ -33,6 +36,14 @@ L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urban
 |date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
 |date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+   `geo_scot_surf_conso_ccba` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur l''ex CCBA selon la méthodologie du SCOT de l'ARC
+   
+La structure de la classe est identique à celle de l'ARC
+   
+   `geo_scot_surf_conso_lach` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
+   
+La structure de la classe est identique à celle de l'ARC   
 
 ---
 
