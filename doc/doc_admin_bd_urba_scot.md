@@ -6,7 +6,7 @@ Une surface est considérée comme consommée d'un point de vue des espaces natu
 
 La consommation des surfaces doit d'évaluer selon son type qui est déterminé de cette façon :
 
-||Type|Description|
+|Type|Description|
 |:---|:---|
 |Non renseigné| |
 |Etalement|Consommation de surface par extension de l'urbanisation en zone AU|
