@@ -5,6 +5,7 @@
 Une surface est considérée comme consommée d'un point de vue des espaces naturels et agricoles lorsque celle-ci présente un état de retour irréversible à de tels usages. Dans le cadre du SCOT de l'ARC, cet état de surface est considéré comme tel dans une opération d'aménagement lorsque le terrain est acquis, viabilisé et fouillé (d'un point de vue archéologique). Ce stade précéde le stade d'artificialisation et d'urbanisation au sens de la "construction", qui lui s'évalue plus généralement par la tâche urbaine.
 
 La consommation des surfaces doit d'évaluer selon son type qui est déterminé de cette façon :
+
 ||Type|Description|
 |:---|:---|
 |Non renseigné| |
