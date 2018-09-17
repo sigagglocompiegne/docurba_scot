@@ -8,7 +8,6 @@ La consommation des surfaces doit d'évaluer selon son type qui est déterminé 
 
 |Type|Description|
 |:---|:---|
-|Non renseigné| |
 |Etalement|Consommation de surface par extension de l'urbanisation en zone AU|
 |Densification|Consommation de surface de type "dent creuse" en zone U|
 |Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
