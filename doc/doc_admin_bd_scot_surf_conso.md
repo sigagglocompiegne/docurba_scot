@@ -6,7 +6,8 @@
 
 ### Définition
 
-Une surface est considérée comme consommée d'un point de vue des espaces naturels et agricoles lorsque celle-ci présente un état de retour irréversible à de tels usages. Dans le cadre du SCOT de l'ARC, cet état est considéré comme tel dans une opération d'aménagement lorsque le terrain est acquis, viabilisé et fouillé (d'un point de vue archéologique). Ce stade précéde le stade d'artificialisation et d'urbanisation au sens de la "construction", qui lui s'évalue plus généralement par la tâche urbaine.
+Dans un SCOT, une surface est considérée comme consommée d'un point de vue des espaces naturels et agricoles lorsque celle-ci présente un état de retour irréversible à de tels usages.
+Dans le cadre du SCOT de l'ARC, cet état a été considéré comme tel lorsque le terrain est acquis, viabilisé et fouillé (d'un point de vue archéologique) dans une opération d'aménagement. Ce stade précéde le stade d'artificialisation et d'urbanisation au sens de la "construction", qui lui s'évalue plus généralement par la tâche urbaine.
 
 ### Méthodologie de détermination des surfaces SCOT
 
@@ -18,6 +19,7 @@ Le type de consommation des surfaces est déterminé de cette façon :
 |Densification|Consommation de surface de type "dent creuse" en zone U|
 |Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 
+Ce sont donc les documents de planifications locaux et des orthophotoplans qui ont servis principalement d'appui pour constituer l'enveloppe de la zone déjà consommée en 2012.
 
 
 ## Classes d'objet
@@ -25,10 +27,10 @@ Le type de consommation des surfaces est déterminé de cette façon :
 L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanisme_reg
 
 Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
-Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées pour ces territoires, afin de ne pas mélanger l'information avec les données initiales.
+Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées pour ces territoires, afin de ne pas mélanger des informations constituées.
 A des fins d'exploitation, les territoires concernés sont rassemblés dans une vue.
 
----
+--
 
    `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l'approbation du SCOT fin 2012 de l'ARC (15 communes)
 
