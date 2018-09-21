@@ -44,18 +44,13 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 |date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
+D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
+
    `geo_scot_surf_conso_ccba` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur l''ex CCBA selon la méthodologie du SCOT de l'ARC
    
-La structure de la classe est identique à celle de l'ARC
-   
    `geo_scot_surf_conso_lach` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
-   
-La structure de la classe est identique à celle de l'ARC
 
-`geo_v_scot_surf_conso_arcba` : Vue des surfaces considérées comme consommées fin 2012 au titre des espaces naturels et agricoles sur le territoire de l'ARCBA et selon la méthodologie du SCOT de l'ARC
-
-La structure de la classe est identique à celle de l'ARC
-
+   `geo_v_scot_surf_conso_arcba` : Vue des surfaces considérées comme consommées fin 2012 au titre des espaces naturels et agricoles sur le territoire de l'ARCBA et selon la méthodologie du SCOT de l'ARC
 
 ---
 
