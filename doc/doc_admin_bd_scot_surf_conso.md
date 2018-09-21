@@ -81,7 +81,7 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 |ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
 |destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
 |typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
-|typeajust|Type d'ajustement des surfaces entre l'arrêt et l'approbation du SCOT de l''ARC|character varying(2)|'00'::bpchar|
+|typeajust|Type d'ajustement des surfaces entre l'arrêt et l'approbation du SCOT de l'ARC|character varying(2)|'00'::bpchar|
 |insee|Code INSEE|character(5)| |
 |commune|Libellé de la commune|character varying(150)| |
 |sup_ha|Superficie en ha|real| |
