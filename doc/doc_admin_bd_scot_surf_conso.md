@@ -1,8 +1,12 @@
 ![picto](/doc/img/Logo_web-GeoCompiegnois.png)
 
-## Définition
+## Préambule
 
-Une surface est considérée comme consommée d'un point de vue des espaces naturels et agricoles lorsque celle-ci présente un état de retour irréversible à de tels usages. Dans le cadre du SCOT de l'ARC, cet état de surface est considéré comme tel dans une opération d'aménagement lorsque le terrain est acquis, viabilisé et fouillé (d'un point de vue archéologique). Ce stade précéde le stade d'artificialisation et d'urbanisation au sens de la "construction", qui lui s'évalue plus généralement par la tâche urbaine.
+### Définition
+
+Une surface est considérée comme consommée d'un point de vue des espaces naturels et agricoles lorsque celle-ci présente un état de retour irréversible à de tels usages. Dans le cadre du SCOT de l'ARC, cet état est considéré comme tel dans une opération d'aménagement lorsque le terrain est acquis, viabilisé et fouillé (d'un point de vue archéologique). Ce stade précéde le stade d'artificialisation et d'urbanisation au sens de la "construction", qui lui s'évalue plus généralement par la tâche urbaine.
+
+### Méthodologie de détermination des surfaces SCOT
 
 La consommation des surfaces doit d'évaluer selon son type qui est déterminé de cette façon :
 
@@ -12,14 +16,9 @@ La consommation des surfaces doit d'évaluer selon son type qui est déterminé 
 |Densification|Consommation de surface de type "dent creuse" en zone U|
 |Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 
-## Méthodologie de détermination des surfaces au SCOT
+## Classes d'objet
 
-
-### Classes d'objet
-
-
-
-L'ensemble des classes d'objets de gestion sont stockés dans le schéma m_urbanisme_reg
+L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanisme_reg
 
 
 ---
