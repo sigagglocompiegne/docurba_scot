@@ -8,7 +8,7 @@ Une surface est considérée comme consommée d'un point de vue des espaces natu
 
 ### Méthodologie de détermination des surfaces SCOT
 
-La consommation des surfaces doit d'évaluer selon son type qui est déterminé de cette façon :
+Le type de consommation des surfaces est déterminé de cette façon :
 
 |Type|Description|
 |:---|:---|
@@ -29,7 +29,7 @@ L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanis
 ---
 
 Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
-Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées, ceci afin de ne pas dénaturer les données initiales héritées de ces territoires.
+Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées spécifiques à ces territoires, afin de ne pas mélanger l'information avec les données initiales .
 A des fins d'exploitation, les territoires concernés sont rassemblés dans une vue.
 
    `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l''ARC (15 communes)
@@ -52,7 +52,11 @@ La structure de la classe est identique à celle de l'ARC
    
    `geo_scot_surf_conso_lach` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
    
-La structure de la classe est identique à celle de l'ARC   
+La structure de la classe est identique à celle de l'ARC
+
+`geo_v_scot_surf_conso_arcba` : Vue des surfaces considérées comme consommées fin 2012 au titre des espaces naturels et agricoles sur le territoire de l'ARCBA et selon la méthodologie du SCOT de l'ARC
+
+La structure de la classe est identique à celle de l'ARC
 
 ---
 
@@ -118,3 +122,20 @@ Valeurs possibles :
 |03|Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 |99|Autre| |
 
+---
+
+`m_urbanisme_reg.lt_scot_typeajust` : Liste des valeurs permettant de décrire le type d'ajustement opéré sur les hypothèses de surfaces à consommer pour le SCOT
+
+|Nom attribut | Définition | Type  | Valeurs par défaut |
+|:---|:---|:---|:---|    
+|code|Code|character varying(2)| |
+|valeur|Valeur|character varying(80)| |
+
+Valeurs possibles :
+
+|Code|Valeur|
+|:---|:---|
+|00|Non renseigné|
+|01|Suppression|
+|02|Ajout|
+|99|Autre|
