@@ -18,21 +18,17 @@ Le type de consommation des surfaces est déterminé de cette façon :
 |Densification|Consommation de surface de type "dent creuse" en zone U|
 |Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 
+
+
 ## Classes d'objet
 
 L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanisme_reg
 
-
----
-
-
-
-
----
-
 Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
-Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées spécifiques à ces territoires, afin de ne pas mélanger l'information avec les données initiales .
+Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées pour ces territoires, afin de ne pas mélanger l'information avec les données initiales.
 A des fins d'exploitation, les territoires concernés sont rassemblés dans une vue.
+
+---
 
    `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l''ARC (15 communes)
 
