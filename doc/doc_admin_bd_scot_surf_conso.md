@@ -28,9 +28,11 @@ Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lor
 Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées pour ces territoires, afin de ne pas mélanger l'information avec les données initiales.
 A des fins d'exploitation, les territoires concernés sont rassemblés dans une vue.
 
+* 
+
 ---
 
-   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l'ARC (15 communes)
+   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l'approbation du SCOT fin 2012 de l'ARC (15 communes)
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
@@ -46,9 +48,9 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 
 D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
-   `geo_scot_surf_conso_ccba` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur l''ex CCBA selon la méthodologie du SCOT de l'ARC
+   `geo_scot_surf_conso_ccba` : Surface considérée comme **rétrospectivement** consommée fin 2012 au titre des espaces naturels et agricoles sur l'ex CCBA selon la méthodologie du SCOT de l'ARC
    
-   `geo_scot_surf_conso_lach` : Surface considérée comme rétrospectivement consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
+   `geo_scot_surf_conso_lach` : Surface considérée comme **rétrospectivement** consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
 
    `geo_v_scot_surf_conso_arcba` : Vue des surfaces considérées comme consommées fin 2012 au titre des espaces naturels et agricoles sur le territoire de l'ARCBA et selon la méthodologie du SCOT de l'ARC
 
