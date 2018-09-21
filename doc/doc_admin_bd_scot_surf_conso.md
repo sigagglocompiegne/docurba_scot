@@ -139,3 +139,12 @@ Valeurs possibles :
 |01|Suppression|
 |02|Ajout|
 |99|Autre|
+
+## Modèle conceptuel simplifié
+
+![mcd](img/MCD.png)
+
+## Schéma fonctionnel
+
+![schema_fonctionnel](img/schema_fonctionnel_****.png)
+
