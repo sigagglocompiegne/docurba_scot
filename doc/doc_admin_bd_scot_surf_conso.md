@@ -30,7 +30,7 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 
 ---
 
-   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l''ARC (15 communes)
+   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l''approbation du SCOT fin 2012 de l'ARC (15 communes)
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
@@ -54,7 +54,7 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
 ---
 
-   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes).
+   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l'ARC (15 communes).
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
@@ -73,7 +73,7 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
 ---
 
-   `geo_scot_hyp_surf_a_conso_ajust_arc` : Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l'arrêt et l'approbation du SCOT de l''ARC (15 communes).
+   `geo_scot_hyp_surf_a_conso_ajust_arc` : Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l'arrêt et l'approbation du SCOT de l'ARC (15 communes).
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
