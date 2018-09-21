@@ -56,6 +56,47 @@ La structure de la classe est identique à celle de l'ARC
 
 La structure de la classe est identique à celle de l'ARC
 
+
+---
+
+   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes).
+
+|Nom attribut | Définition | Type | Valeurs par défaut |
+|:---|:---|:---|:---|
+|id|Identifiant|bigint| |
+|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
+|destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
+|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
+|insee|Code INSEE|character(5)| |
+|commune|Libellé de la commune|character varying(150)| |
+|sup_ha|Superficie en ha|real| |
+|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
+|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
+|date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
+|date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
+|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+---
+
+   `geo_scot_hyp_surf_a_conso_ajust_arc` : Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l'arrêt et l'approbation du SCOT de l''ARC (15 communes).
+
+|Nom attribut | Définition | Type | Valeurs par défaut |
+|:---|:---|:---|:---|
+|id|Identifiant|bigint| |
+|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
+|destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
+|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
+|typeajust|Type d'ajustement des surfaces entre l'arrêt et l'approbation du SCOT de l''ARC|character varying(2)|'00'::bpchar|
+|insee|Code INSEE|character(5)| |
+|commune|Libellé de la commune|character varying(150)| |
+|sup_ha|Superficie en ha|real| |
+|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
+|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
+|date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
+|date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
+|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+
 ---
 
    `geo_scot_surf_suivi_conso_arcba` : Table géographique du suivi de la consommation des surfaces sur l'ARCBA.
@@ -76,6 +117,8 @@ La structure de la classe est identique à celle de l'ARC
 |date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
 |date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
+
+Cette classe d'objet est destinée à être modifiée contrairement aux précédentes, ceci afin d'effectuer le suivi de la consommation des surfaces du SCOT
 
 ---
 
