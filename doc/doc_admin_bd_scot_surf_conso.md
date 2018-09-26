@@ -19,7 +19,8 @@ Le type de consommation des surfaces est déterminé de cette façon :
 |Densification|Consommation de surface de type "dent creuse" en zone U|
 |Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 
-Ce sont donc les documents de planifications locaux et des orthophotoplans qui ont servis principalement d'appui pour constituer l'enveloppe de la zone déjà consommée en 2012.
+Ce sont donc les documents de planifications locaux, le plan cadastral (PCI vecteur) et des orthophotoplans qui ont servis principalement d'appui pour constituer l'enveloppe de la zone déjà consommée en 2012.
+En plus des zones d'habitat et d'activités, les secteurs d'équipements publics y compris sportifs ont été intégrés dans les surfaces consommées au titre des espaces naturels et agricoles.
 
 
 ## Classes d'objet
