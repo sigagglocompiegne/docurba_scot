@@ -139,7 +139,7 @@ CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   a_conso_f integer NOT NULL,
   typeconso character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   a_dru_d integer ,
-  a_dru_f integer NOT NULL,
+  a_dru_f integer,
   src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   src_date integer NOT NULL,
   sup_ha double precision,
