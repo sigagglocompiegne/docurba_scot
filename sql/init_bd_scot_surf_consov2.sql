@@ -204,21 +204,21 @@ CREATE INDEX geo_scot_surf_suivi_conso_arcba_geom_gist
 
 -- DROP VIEW m_urbanisme_reg.geo_v_scot_surf_conso_arcba;
 
-CREATE OR REPLACE VIEW m_urbanisme_reg.geo_v_tacheespurb_2008 AS
+CREATE OR REPLACE VIEW m_urbanisme_reg.geo_v_tacheespurb_2012 AS
 SELECT
 row_number() over() as gid,
 st_union(geom) as geom
 FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-WHERE a_conso_f >= 2008;
+WHERE a_conso_f >= 2012;
 
-ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2008
+ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2012
   OWNER TO sig_create;
-GRANT ALL ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO sig_create;
-GRANT SELECT ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO read_sig;
-GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO edit_sig;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2012 TO sig_create;
+GRANT SELECT ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2012 TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2012 TO edit_sig;
 								       
-COMMENT ON VIEW m_urbanisme_reg.geo_v_tacheespurb_2008
-  IS 'Vue reconstruisant la taches "d''Espaces à vocation urbaine" en 2008';  
+COMMENT ON VIEW m_urbanisme_reg.geo_v_tacheespurb_2012
+  IS 'Vue reconstruisant la taches "d''Espaces à vocation urbaine" en 2012';  
 
 
 
