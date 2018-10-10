@@ -10,7 +10,7 @@
 -- ###                                                                                                                                              ###
 -- ####################################################################################################################################################
 
-
+BEGIN;
 -- ################################################################# Domaine valeur - lt_scot_destsurf #############################################
 
 -- Table: m_urbanisme_reg.lt_scot_destdomi
@@ -135,10 +135,10 @@ CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   date_maj timestamp without time zone,
   op_sai character varying(50),
   destdomi character varying(2) NOT NULL DEFAULT '00' ::bpchar,
-  a_conso_d integer NOT NULL,
+  a_conso_d integer,
   a_conso_f integer NOT NULL,
   typeconso character varying(2) NOT NULL DEFAULT '00' ::bpchar,
-  a_dru_d integer NOT NULL,
+  a_dru_d integer ,
   a_dru_f integer NOT NULL,
   src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   src_date integer NOT NULL,
@@ -204,17 +204,20 @@ CREATE INDEX geo_scot_surf_suivi_conso_arcba_geom_gist
 
 -- DROP VIEW m_urbanisme_reg.geo_v_scot_surf_conso_arcba;
 
-CREATE OR REPLACE VIEW m_urbanisme_reg.geo_v_scot_surf_conso_arcba AS
+CREATE OR REPLACE VIEW m_urbanisme_reg.geo_v_tacheespurb_2008 AS
+SELECT
+row_number() over() as gid,
+st_union(geom) as geom
+FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+WHERE a_conso_f >= 2008;
 
-
-
-ALTER TABLE m_urbanisme_reg.geo_v_scot_surf_conso_arcba
+ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2008
   OWNER TO sig_create;
-GRANT ALL ON TABLE m_urbanisme_reg.geo_v_scot_surf_conso_arcba TO sig_create;
-GRANT SELECT ON TABLE m_urbanisme_reg.geo_v_scot_surf_conso_arcba TO read_sig;
-GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_v_scot_surf_conso_arcba TO edit_sig;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO sig_create;
+GRANT SELECT ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_v_tacheespurb_2008 TO edit_sig;
 								       
-COMMENT ON VIEW m_urbanisme_reg.geo_v_scot_surf_conso_arcba
+COMMENT ON VIEW m_urbanisme_reg.geo_v_tacheespurb_2008
   IS 'Vue reconstruisant la taches "d''Espaces à vocation urbaine" en 2008';  
 
 
@@ -313,8 +316,19 @@ CREATE TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_insee
   RETURNS trigger AS
 $BODY$BEGIN
 
-IF THEN
-RAISE EXECPTION 
+-- si typeconso = 'densification ou renouvellement urbain' les champs a_dru_d et a_dru_f doivent être rempli 
+IF (new.typeconso='02' or new.typeconso='03') and new.a_dru_f is null THEN
+RAISE EXCEPTION 'Vous devez renseigner la date de début (si connu) et de fin de consommation pour le type de consommation DENSIFICATION ou RENOUVELLEMENT URBAIN';
+END IF;
+
+-- si typeconso = 'étalement' les champs a_dru_d et a_dru_f ne doivent pas être rempli 
+IF new.typeconso='01' and (new.a_dru_f > 0 or new.a_dru_d > 0  THEN
+RAISE EXCEPTION 'Vous ne pouvez pas saisir d''année de consommation en densification ou renouvellement urbain si le type de consommation est ETALEMENT';
+END IF;
+			   
+-- si date de conso fin obligatoire 
+IF new.a_conso_f is null THEN
+RAISE EXCEPTION 'Vous devez obligatoirement saisir une date de fin de consommation';
 END IF;
 
 RETURN NEW;
@@ -338,3 +352,5 @@ CREATE TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_ctrl
   FOR EACH ROW
   EXECUTE PROCEDURE m_urbanisme_reg.r_ctrl_suivi_conso_s(); 
 
+
+COMMIT;
