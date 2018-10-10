@@ -100,9 +100,9 @@ INSERT INTO m_urbanisme_reg.lt_scot_typeconso(
 -- #################################################################### SUIVI SURF CONSO ##############################################################
 
 
--- ###################
--- ##      ARC      ##
--- ################### 
+-- #######################################################
+-- ##      TABLE / geo_scot_surf_suivi_conso_arcba      ##
+-- #######################################################
 
 -- Sequence: m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq
 
@@ -190,8 +190,79 @@ CREATE INDEX geo_scot_surf_suivi_conso_arcba_geom_gist
   USING gist
   (geom);
   
-  
-    
+ 
+
+
+-- ###########################################################
+-- ##      TABLE / geo_scot_surf_suivi_conso_arcba_signal   ##
+-- ###########################################################
+
+-- Sequence: m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq
+
+-- DROP SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq;
+
+CREATE SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq
+  INCREMENT 1
+  MINVALUE 0
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq
+  OWNER TO sig_create;
+GRANT ALL ON SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq TO sig_create;
+GRANT SELECT, UPDATE ON SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq TO create_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq TO read_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq TO edit_sig;
+
+-- Table: m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+
+-- DROP TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal;
+
+CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_signal
+(
+  gid bigint NOT NULL DEFAULT nextval('m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq'::regclass),
+  insee character varying(5),
+  commune character varying(150),
+  date_sai timestamp without time zone DEFAULT now(),  
+  date_maj timestamp without time zone,
+  op_sai character varying(50),
+  traite_sig character varying(2) DEFAULT '0' ::bpchar,
+  observ character varying(1000),
+  geom geometry(Point,2154),
+  CONSTRAINT geo_scot_surf_suivi_conso_arcba_signal_pkey PRIMARY KEY (gid)  
+)
+WITH (
+  OIDS=TRUE
+);
+ALTER TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+  OWNER TO sig_create;
+GRANT ALL ON TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal TO sig_create;
+GRANT ALL ON TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal TO create_sig;
+GRANT SELECT ON TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal TO edit_sig;
+COMMENT ON TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+  IS 'Table géographique des signalements concernant le suivi de la consommation des surfaces sur l''ARCBA';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.gid IS 'Identifiant interne';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.insee IS 'Code INSEE';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.commune IS 'Nom de la commune';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.date_sai IS 'Horodatage de l''intégration en base de l''objet';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.date_maj IS 'Horodatage de la mise à jour en base de l''objet';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.op_sai IS 'Opérateur de saisies ou de mises à jour des données';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.traite_sig IS 'Niveau du traitement du signalement au sein du service SIG (lié à la liste de valeur lt_traite_sig)';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.observ IS 'Description du questionnement';
+COMMENT ON COLUMN m_signalement.geo_scot_surf_suivi_conso_arcba_signal.geom IS 'Géométrie de l''objet';
+
+
+-- index spatial
+
+-- Index: m_signalement.geo_scot_surf_suivi_conso_arcba_signal_geom_gist
+
+-- DROP INDEX m_signalement.geo_scot_surf_suivi_conso_arcba_geom_gist;
+
+CREATE INDEX geo_scot_surf_suivi_conso_arcba_geom_gist
+  ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+  USING gist
+  (geom);
   
 -- ####################################################################################################################################################
 -- ###                                                                                                                                              ###
@@ -286,7 +357,13 @@ ADD CONSTRAINT lt_scot_src_geom_fkey FOREIGN KEY (src_geom)
       REFERENCES r_objet.lt_src_geom (code) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION;
          
-      
+  
+-- Table: m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+ALTER TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+ADD CONSTRAINT lt_traite_sig_fkey FOREIGN KEY (traite_sig)
+      REFERENCES m_signalement.lt_traite_sig (code) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
       
       
       
@@ -300,57 +377,8 @@ ADD CONSTRAINT lt_scot_src_geom_fkey FOREIGN KEY (src_geom)
 
 -- ####################################################### TRIGGER - suivi_conso #############################################################
 
--- *** calcul_sup_ha
 
--- Trigger: t_t1_geo_scot_surf_suivi_conso_arcba_sup_ha on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-
--- DROP TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_sup_ha on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
-
-CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_sup_ha
-  BEFORE INSERT OR UPDATE OF geom
-  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.r_sup_ha_maj();
-
-  
--- *** date_sai
-
--- Trigger: t_t2_geo_scot_surf_suivi_conso_arcba_date_sai on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-
--- DROP TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_date_sai ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
-
-CREATE TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_date_sai
-  BEFORE INSERT
-  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.r_timestamp_sai();  
-  
--- *** date_maj 
-
--- Trigger: t_t3_geo_scot_surf_suivi_conso_arcba_date_maj on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-
--- DROP TRIGGER t_t3_geo_scot_surf_suivi_conso_arcba_date_maj ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
-
-CREATE TRIGGER t_t3_geo_scot_surf_suivi_conso_arcba_date_maj
-  BEFORE UPDATE
-  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.r_timestamp_maj();  
-  
- -- *** insee et commune
-
--- Trigger: t_t4_geo_scot_surf_suivi_conso_arcba_insee on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-
--- DROP TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_insee ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
-
-CREATE TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_insee
-  BEFORE INSERT OR UPDATE OF geom
-  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.r_commune_c();  
-
-
--- Trigger de contrôle de saisie
+-- Trigger de contrôle de saisie et amorce de la séquence
 
  CREATE OR REPLACE FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s()
   RETURNS trigger AS
@@ -371,6 +399,8 @@ IF new.a_conso_f is null THEN
 RAISE EXCEPTION 'Vous devez obligatoirement saisir une date de fin de consommation';
 END IF;
 
+new.gid := nextval('m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq'::regclass);
+
 RETURN NEW;
 END;$BODY$
   LANGUAGE plpgsql VOLATILE
@@ -382,15 +412,97 @@ GRANT EXECUTE ON FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s() TO sig_create;
 GRANT EXECUTE ON FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s() TO create_sig;
 COMMENT ON FUNCTION m_urbanisme_reg.r_sup_ha_maj() IS 'Fonction dont l''objet est de contrôler la saisie et de remonter des messages d''erreurs à QGIS';
 
--- Trigger: t_t5_geo_scot_surf_suivi_conso_arcba_ctrl on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+-- Trigger: t_t1_geo_scot_surf_suivi_conso_arcba_ctrl on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 
--- DROP TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_ctrl ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+-- DROP TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
 
-CREATE TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_ctrl
+CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl
   BEFORE INSERT OR UPDATE
   ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   FOR EACH ROW
   EXECUTE PROCEDURE m_urbanisme_reg.r_ctrl_suivi_conso_s(); 
+
+
+
+-- *** calcul_sup_ha
+
+-- Trigger: t_t2_geo_scot_surf_suivi_conso_arcba_sup_ha on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+-- DROP TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_sup_ha on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+
+CREATE TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_sup_ha
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_sup_ha_maj();
+
+  
+-- *** date_sai
+
+-- Trigger: t_t3_geo_scot_surf_suivi_conso_arcba_date_sai on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+-- DROP TRIGGER t_t3_geo_scot_surf_suivi_conso_arcba_date_sai ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+
+CREATE TRIGGER t_t3_geo_scot_surf_suivi_conso_arcba_date_sai
+  BEFORE INSERT
+  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_timestamp_sai();  
+  
+-- *** date_maj 
+
+-- Trigger: t_t4_geo_scot_surf_suivi_conso_arcba_date_maj on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+-- DROP TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_date_maj ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+
+CREATE TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_date_maj
+  BEFORE UPDATE
+  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_timestamp_maj();  
+  
+ -- *** insee et commune
+
+-- Trigger: t_t5_geo_scot_surf_suivi_conso_arcba_insee on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+-- DROP TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_insee ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+
+CREATE TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_insee
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_commune_c();  
+
+-- ####################################################### TRIGGER - signalement suivi_conso #############################################################
+
+-- Trigger de contrôle de saisie et amorce de la séquence
+
+ CREATE OR REPLACE FUNCTION m_signement.r_seq_suivi_conso_signal_s()
+  RETURNS trigger AS
+$BODY$BEGIN
+
+new.gid := nextval('m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq'::regclass);
+
+RETURN NEW;
+END;$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION m_signement.r_seq_suivi_conso_signal_s()
+  OWNER TO sig_create;
+GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO public;
+GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO sig_create;
+GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO create_sig;
+COMMENT ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() IS 'Fonction dont l''objet est de contrôler la saisie et de remonter des messages d''erreurs à QGIS';
+
+-- Trigger: t_t1_geo_scot_surf_suivi_conso_arcba_signal on m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+
+-- DROP TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_signal ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal;
+
+CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl
+  BEFORE INSERT
+  ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+  FOR EACH ROW
+  EXECUTE PROCEDURE m_signalement.r_seq_suivi_conso_signal_s(); 
 
 
 COMMIT;
