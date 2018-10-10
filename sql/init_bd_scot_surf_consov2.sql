@@ -209,7 +209,7 @@ SELECT
 row_number() over() as gid,
 geom
 FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-WHERE a_conso_f >= 2018;
+WHERE a_conso_f >= 2008;
 
 ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2018
   OWNER TO sig_create;
@@ -229,7 +229,7 @@ SELECT
 row_number() over() as gid,
 geom
 FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-WHERE a_conso_f >= 2012;
+WHERE geo_scot_surf_suivi_conso_arcba.a_conso_f >= 2008 AND geo_scot_surf_suivi_conso_arcba.a_conso_f <= 2012;
 
 ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2012
   OWNER TO sig_create;
@@ -249,7 +249,7 @@ SELECT
 row_number() over() as gid,
 geom
 FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-WHERE a_conso_f >= 2008;
+WHERE a_conso_f <= 2008;
 
 ALTER TABLE m_urbanisme_reg.geo_v_tacheespurb_2008
   OWNER TO sig_create;
