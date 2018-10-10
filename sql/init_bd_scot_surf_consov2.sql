@@ -307,7 +307,7 @@ CREATE TRIGGER t_t4_geo_scot_surf_suivi_conso_arcba_insee
   BEFORE INSERT OR UPDATE OF geom
   ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   FOR EACH ROW
-  EXECUTE PROCEDURE public.r_commune_s();  
+  EXECUTE PROCEDURE public.r_commune_c();  
 
 
 -- Trigger de contrôle de saisie
