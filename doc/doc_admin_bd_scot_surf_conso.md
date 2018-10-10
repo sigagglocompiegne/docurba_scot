@@ -99,7 +99,7 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
 ---
 
-   `geo_scot_surf_suivi_conso_arcba` : Table géographique du suivi de la consommation des surfaces sur l'ARCBA.
+   `geo_scot_surf_suivi_conso_arcba` : Table géographique du suivi de la consommation des surfaces sur l'ARCBA depuis l'approbation du SCoT (2012).
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
