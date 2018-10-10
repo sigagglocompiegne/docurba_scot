@@ -158,7 +158,7 @@ GRANT ALL ON TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba TO create_sig
 GRANT SELECT ON TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba TO read_sig;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba TO edit_sig;
 COMMENT ON TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
-  IS 'Table géographique du suivi de la consommation des surfaces sur l''ARCBA';
+  IS 'Table géographique du suivi de la consommation (SCoT,PLUi) des surfaces sur l''ARCBA';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.gid IS 'Identifiant interne';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.insee IS 'Code INSEE';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.commune IS 'Nom de la commune';
