@@ -143,7 +143,7 @@ CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   src_date integer NOT NULL,
   sup_ha double precision,
-  ope_amgt character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  ope_amgt character varying(100),
   observ character varying(254),
   geom geometry(MultiPolygon,2154),
   CONSTRAINT geo_scot_surf_suivi_conso_arcba_pkey PRIMARY KEY (gid)  
@@ -174,7 +174,7 @@ COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.a_dru_f IS 'An
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.src_geom IS 'Référentiel de saisie';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.src_date IS 'Année du millésime du référentiel de saisie';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.sup_ha IS 'Superficie en ha';
-COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.ope_amgt IS 'Nom de l''opération d''aménagement';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.ope_amgt IS 'Nom de l''opération d''aménagement gérée ou non par l''ARC';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.observ IS 'Observations';
 COMMENT ON COLUMN m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba.geom IS 'Géométrie de l''objet';
 
@@ -346,9 +346,6 @@ COMMENT ON VIEW m_urbanisme_reg.geo_v_tacheespurb_2008
 ALTER TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 ADD CONSTRAINT lt_scot_destdomi_fkey FOREIGN KEY (destdomi)
       REFERENCES m_urbanisme_reg.lt_scot_destdomi (code) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-ADD CONSTRAINT lt_ces_voca_fkey FOREIGN KEY (ope_amgt)
-      REFERENCES m_foncier.lt_ces_voca (l_voca) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
 ADD CONSTRAINT lt_scot_typeconso_fkey FOREIGN KEY (typeconso)
       REFERENCES m_urbanisme_reg.lt_scot_typeconso (code) MATCH SIMPLE
