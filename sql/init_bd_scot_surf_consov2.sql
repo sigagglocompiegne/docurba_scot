@@ -207,7 +207,7 @@ CREATE INDEX geo_scot_surf_suivi_conso_arcba_geom_gist
 CREATE OR REPLACE VIEW m_urbanisme_reg.geo_v_tacheespurb_2012 AS
 SELECT
 row_number() over() as gid,
-st_union(geom) as geom
+geom
 FROM m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 WHERE a_conso_f >= 2012;
 
