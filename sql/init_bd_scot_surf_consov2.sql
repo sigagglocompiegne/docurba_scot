@@ -129,8 +129,8 @@ GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 (
   gid bigint NOT NULL DEFAULT nextval('m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq'::regclass),
-  insee character varying(5) NOT NULL,
-  commune character varying(150) NOT NULL,
+  insee character varying(5),
+  commune character varying(150),
   date_sai timestamp without time zone DEFAULT now(),  
   date_maj timestamp without time zone,
   op_sai character varying(50),
