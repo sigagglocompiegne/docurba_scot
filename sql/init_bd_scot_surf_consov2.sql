@@ -47,8 +47,7 @@ INSERT INTO m_urbanisme_reg.lt_scot_destdomi(
     ('04','Loisirs et tourisme'),
     ('05','Equipement'),
 -- liste héritée du standard PLUi du CNIG et restreinte aux occurences adaptées pour la conso de surface au SCOT    
-    ('99','Autre'),
-    ('ZZ','Non concerné');
+    ('99','Autre');
   
 -- ################################################################# Domaine valeur - lt_scot_typeconso #############################################
 
@@ -85,7 +84,8 @@ INSERT INTO m_urbanisme_reg.lt_scot_typeconso(
     ('01','Etalement','Consommation de surface par extension de l''urbanisation en zone AU'),
     ('02','Densification','Consommation de surface de type "dent creuse" en zone U'),
     ('03','Renouvellement urbain','Surface précédemment consommée et faisant l''objet d''une opération de renouvellement urbain, en zone U ou AU'),
-    ('99','Autre','');  
+    ('99','Autre',''),
+    ('ZZ','Non concerné','Espace urbain historique déjà en place');  
 
 
 
