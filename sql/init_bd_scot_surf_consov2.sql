@@ -143,7 +143,7 @@ CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   src_date integer NOT NULL,
   sup_ha double precision,
-  ope_amgt character varying(2) NOT NULL DEFAULT '00' ::bpchar,,
+  ope_amgt character varying(2) NOT NULL DEFAULT '00' ::bpchar,
   observ character varying(254),
   geom geometry(MultiPolygon,2154),
   CONSTRAINT geo_scot_surf_suivi_conso_arcba_pkey PRIMARY KEY (gid)  
@@ -236,8 +236,8 @@ ALTER TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 ADD CONSTRAINT lt_scot_destdomi_fkey FOREIGN KEY (destdomi)
       REFERENCES m_urbanisme_reg.lt_scot_destdomi (code) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-ADD CONSTRAINT lt_ces_voca_fkey FOREIGN KEY (ope_amt)
-      REFERENCES m_urbanisme_reg.lt_ces_voca (code) MATCH SIMPLE
+ADD CONSTRAINT lt_ces_voca_fkey FOREIGN KEY (ope_amgt)
+      REFERENCES m_foncier.lt_ces_voca (l_voca) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
 ADD CONSTRAINT lt_scot_typeconso_fkey FOREIGN KEY (typeconso)
       REFERENCES m_urbanisme_reg.lt_scot_typeconso (code) MATCH SIMPLE
@@ -322,7 +322,7 @@ RAISE EXCEPTION 'Vous devez renseigner la date de début (si connu) et de fin de
 END IF;
 
 -- si typeconso = 'étalement' les champs a_dru_d et a_dru_f ne doivent pas être rempli 
-IF new.typeconso='01' and (new.a_dru_f > 0 or new.a_dru_d > 0  THEN
+IF new.typeconso='01' and (new.a_dru_f > 0 or new.a_dru_d > 0)  THEN
 RAISE EXCEPTION 'Vous ne pouvez pas saisir d''année de consommation en densification ou renouvellement urbain si le type de consommation est ETALEMENT';
 END IF;
 			   
