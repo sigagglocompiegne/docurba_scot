@@ -218,7 +218,7 @@ GRANT SELECT, UPDATE ON SEQUENCE m_signalement.geo_scot_surf_suivi_conso_arcba_s
 
 -- DROP TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal;
 
-CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_signal
+CREATE TABLE m_signalement.geo_scot_surf_suivi_conso_arcba_signal
 (
   gid bigint NOT NULL DEFAULT nextval('m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq'::regclass),
   insee character varying(5),
@@ -504,5 +504,17 @@ CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl
   FOR EACH ROW
   EXECUTE PROCEDURE m_signalement.r_seq_suivi_conso_signal_s(); 
 
+
+-- *** insee et commune
+
+-- Trigger: t_t2_geo_scot_surf_suivi_conso_arcba_insee on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
+
+-- DROP TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_insee ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba;
+
+CREATE TRIGGER t_t2_geo_scot_surf_suivi_conso_arcba_signal_insee
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_commune_pl();  
 
 COMMIT;
