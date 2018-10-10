@@ -399,7 +399,6 @@ IF new.a_conso_f is null THEN
 RAISE EXCEPTION 'Vous devez obligatoirement saisir une date de fin de consommation';
 END IF;
 
-new.gid := nextval('m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq'::regclass);
 
 RETURN NEW;
 END;$BODY$
@@ -474,36 +473,6 @@ CREATE TRIGGER t_t5_geo_scot_surf_suivi_conso_arcba_insee
   EXECUTE PROCEDURE public.r_commune_c();  
 
 -- ####################################################### TRIGGER - signalement suivi_conso #############################################################
-
--- Trigger de contrôle de saisie et amorce de la séquence
-
- CREATE OR REPLACE FUNCTION m_signement.r_seq_suivi_conso_signal_s()
-  RETURNS trigger AS
-$BODY$BEGIN
-
-new.gid := nextval('m_signalement.geo_scot_surf_suivi_conso_arcba_signal_gid_seq'::regclass);
-
-RETURN NEW;
-END;$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION m_signement.r_seq_suivi_conso_signal_s()
-  OWNER TO sig_create;
-GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO public;
-GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO sig_create;
-GRANT EXECUTE ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() TO create_sig;
-COMMENT ON FUNCTION m_signement.r_seq_suivi_conso_signal_s() IS 'Fonction dont l''objet est de contrôler la saisie et de remonter des messages d''erreurs à QGIS';
-
--- Trigger: t_t1_geo_scot_surf_suivi_conso_arcba_signal on m_signalement.geo_scot_surf_suivi_conso_arcba_signal
-
--- DROP TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_signal ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal;
-
-CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl
-  BEFORE INSERT
-  ON m_signalement.geo_scot_surf_suivi_conso_arcba_signal
-  FOR EACH ROW
-  EXECUTE PROCEDURE m_signalement.r_seq_suivi_conso_signal_s(); 
-
 
 -- *** insee et commune
 
