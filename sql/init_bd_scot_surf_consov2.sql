@@ -131,7 +131,7 @@ CREATE TABLE m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   gid bigint NOT NULL DEFAULT nextval('m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq'::regclass),
   insee character varying(5) NOT NULL,
   commune character varying(150) NOT NULL,
-  date_sai timestamp without time zone NOT NULL DEFAULT now(),  
+  date_sai timestamp without time zone DEFAULT now(),  
   date_maj timestamp without time zone,
   op_sai character varying(50),
   destdomi character varying(2) NOT NULL DEFAULT '00' ::bpchar,
