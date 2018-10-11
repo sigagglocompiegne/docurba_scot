@@ -10,7 +10,7 @@
 
 . réaliser ce travail commune par commune
 . réaffecter les dates de début et fin de consommation des polygones 
-####. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être *
+. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être
 
 * Comment : avec le référentiel Ortho 2008 de l'IGN
 
