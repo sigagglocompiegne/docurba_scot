@@ -8,7 +8,8 @@
 
 * Principes : 
 
-. réaliser ce travail commune par commune
+. réaliser ce travail commune par commune 
+
 . réaffecter les dates de début et fin de consommation des polygones 
 . les polygones concernés par une surcace calculée au SCoT ne peuvent pas être
 
