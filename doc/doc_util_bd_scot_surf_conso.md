@@ -45,8 +45,8 @@ Opération d'aménagement : indiquer le nom si nécessaire
 
 . le polygone n'est pas entièrement concerné par une consommation entre 2008 et 2012, une découpe est nécessaire (attention, les limites extérieures de la tache urbaine ne peuvent pas être modifiées) :
 
--en respectant les limites du cadastre à l'intérieur des polygones de la "tache urbaine 2012",
--affecter les valeurs suivantes pour le polygone consommé entre 2008 et 2012 :
+- en respectant les limites du cadastre à l'intérieur des polygones de la "tache urbaine 2012"
+- affecter les valeurs suivantes pour le polygone consommé entre 2008 et 2012 :
 
 Date de début de consommation : 2008
 
