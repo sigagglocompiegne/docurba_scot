@@ -166,6 +166,27 @@ Valeurs possibles :
 |02|Ajout|
 |99|Autre|
 
+---
+
+
+## Projet QGIS pour la gestion
+
+Un projet QGIS a été réalisé pour la gestion interne des données. Il est stocké ici :
+R:\Projets\Metiers\1809URBA-ARC-SCOT_suivi_surface\SUIVI_CONSO_SCOT_PLUI.qgz
+
+## Traitement automatisé mis en place (Workflow de l'ETL FME)
+
+### Traitement statistique
+
+(à écrire)
+
+
+## Export Open Data
+
+Sans objet
+
+---
+
 ## Modèle conceptuel simplifié
 
 ![mcd](img/MCD.png)
