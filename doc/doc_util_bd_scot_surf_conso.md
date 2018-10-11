@@ -12,7 +12,7 @@
 
 . réaffecter les dates de début et fin de consommation des polygones 
 
-. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être modifiés
+. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être modifiés (couche Hypothèse de surface à consommer au SCoT dans le projet QGIS)
 
 . si doute, faire une annotation (sera traité par l'équipe SIG)
 
@@ -24,11 +24,11 @@
 
 * **Règles** : 
 
-. 1 - si l'interprétation du contenu du polygone ne montre pas d'évolutions de surface, celui-ci doit prendre la valeur date de fin de consommation = 2008 et rien en date de début de consommation
+1 - si l'interprétation du contenu du polygone ne montre pas d'évolutions de surface, celui-ci doit prendre la valeur date de fin de consommation = 2008 et rien en date de début de consommation
 
-. 2 - si l'interprétation du contenu du polygone montre une évolution de surface, aucune modification tant que la commune n'est pas entièrement modifiée
+2 - si l'interprétation du contenu du polygone montre une évolution de surface, aucune modification tant que la commune n'est pas entièrement modifiée
 
-. 3 - lorsque la commune est traitée, revenir sur les polygones non modifiés (non affectés à la "tache urbaine 2008) et appliquer les règles suivantes :
+3 - lorsque la commune est traitée, revenir sur les polygones non modifiés (non affectés à la "tache urbaine 2008) et appliquer les règles suivantes :
 
 . le polygone est entièrement concerné par une consommation entre 2008 et 2012, pas de découpe et affectation des valeurs suivantes :
 
