@@ -6,7 +6,7 @@
 
 ### 1-De la "tache urbaine" 2012 à la "tache urbaine" 2008 :
 
-* Principes : 
+* **Principes : **
 
 . réaliser ce travail commune par commune 
 
