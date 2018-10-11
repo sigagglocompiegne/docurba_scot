@@ -12,7 +12,7 @@
 
 . réaffecter les dates de début et fin de consommation des polygones 
 
-. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être modifiés (couche Hypothèse de surface à consommer au SCoT dans le projet QGIS)
+. les polygones concernés par une surface calculée au SCoT ne peuvent pas être modifiés (couche Hypothèse de surface à consommer au SCoT dans le projet QGIS)
 
 . si doute, faire une annotation (sera traité par l'équipe SIG)
 
