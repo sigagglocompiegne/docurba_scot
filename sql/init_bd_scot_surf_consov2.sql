@@ -569,6 +569,52 @@ ADD CONSTRAINT lt_traite_sig_fkey FOREIGN KEY (traite_sig)
 -- ###                                                                                                                                              ###
 -- ####################################################################################################################################################
 
+-- ####################################################### TRIGGER - hyp_surf_a_conso_arc  #############################################################
+
+-- *** calcul_sup_ha
+
+-- Trigger: t_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+
+-- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc;
+
+CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_arc_sup_ha
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_sup_ha_maj();
+
+
+-- ####################################################### TRIGGER - hyp_surf_a_conso_ajust_arc  #############################################################
+
+-- *** calcul_sup_ha
+
+-- Trigger: t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+
+-- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
+
+CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_sup_ha_maj();
+
+
+-- *** insee
+
+/* ***** Attention, à l'échelle cadastrale, problème de calage de geomètrie du referentiel osm, propre topologiquement en revanche *****
+
+
+-- Trigger: t_geo_scot_hyp_surf_a_conso_ajust_arc_insee on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+
+-- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_insee ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
+
+CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_insee
+  BEFORE INSERT OR UPDATE OF geom
+  ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.r_commune_s(); 
+
+*/  
 
 
 -- ####################################################### TRIGGER - suivi_conso #############################################################
