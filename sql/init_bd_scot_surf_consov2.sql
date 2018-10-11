@@ -2,7 +2,7 @@
 -- GB 2018-10-10 : initialisation du code pour le suivi des consommations SCOT (méthode ARC)
 -- Principe : gérer dans un même fichier les différentes stades de consommation (étalement, densification, renouvellement urbain)
 -- tout en conservant la possibilité de générer des taches "d'Espaces à vocation urbaine" par année ou fin de période.
-
+-- GB 2018-10-11 : intégration du code des classes d'objets concernant les données du SCoT de 2012
 
 -- ####################################################################################################################################################
 -- ###                                                                                                                                              ###
@@ -96,6 +96,173 @@ INSERT INTO m_urbanisme_reg.lt_scot_typeconso(
 -- ###                                                                                                                                              ###
 -- ####################################################################################################################################################
 
+-- #################################################################### SURF A CONSO ########################################################
+
+
+-- ###################
+-- ## SCOT  ARC    ##
+-- ################### 
+
+-- Sequence: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq
+
+-- DROP SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq;
+
+CREATE SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq
+  INCREMENT 1
+  MINVALUE 0
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq
+  OWNER TO sig_create;
+GRANT ALL ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq TO sig_create;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq TO create_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq TO read_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq TO edit_sig;
+
+-- Table: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+
+-- DROP TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc;
+
+CREATE TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+(
+  id bigint NOT NULL DEFAULT nextval('m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_id_seq'::regclass),
+  ope_amgt character varying(80),
+  destsurf character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  typeconso character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  insee character varying(5) NOT NULL,
+  commune character varying(150) NOT NULL,
+  sup_ha real,
+  observ character varying(254),  
+  src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  src_date character varying(4) NOT NULL DEFAULT '0000' ::bpchar,
+  date_sai timestamp without time zone NOT NULL DEFAULT now(),  
+  date_maj timestamp without time zone,
+  geom geometry(MultiPolygon,2154),
+  
+  CONSTRAINT geo_scot_hyp_surf_a_conso_arc_pkey PRIMARY KEY (id)  
+)
+WITH (
+  OIDS=TRUE
+);
+ALTER TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+  OWNER TO sig_create;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc TO sig_create;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc TO create_sig;
+GRANT SELECT ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc TO edit_sig;
+COMMENT ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+  IS 'Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l''ARC (15 communes)';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.id IS 'Identifiant';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.ope_amgt IS 'Nom de l''opération d''aménagement';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.destsurf IS 'Destination d''usage de la surface à consommer';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.typeconso IS 'Type de consommation de surface';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.insee IS 'Code INSEE';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.commune IS 'Nom de la commune';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.sup_ha IS 'Superficie en ha';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.observ IS 'Observations';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.src_geom IS 'Référentiel de saisie';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.src_date IS 'Année du millésime du référentiel de saisie';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.date_sai IS 'Horodatage de l''intégration en base de l''objet';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.date_maj IS 'Horodatage de la mise à jour en base de l''objet';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc.geom IS 'Géométrie de l''objet';
+
+-- index spatial
+
+-- Index: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_geom_gist
+
+-- DROP INDEX m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc_geom_gist;
+
+CREATE INDEX geo_scot_hyp_surf_a_conso_arc_geom_gist
+  ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+  USING gist
+  (geom);
+  
+
+-- #################################################################### SURF A CONSO AJUSTEMENTS ########################################################
+
+
+-- ###################
+-- ## SCOT ARC      ##
+-- ################### 
+
+-- Sequence: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq
+
+-- DROP SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq;
+
+CREATE SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq
+  INCREMENT 1
+  MINVALUE 0
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq
+  OWNER TO sig_create;
+GRANT ALL ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq TO sig_create;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq TO create_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq TO read_sig;
+GRANT SELECT, UPDATE ON SEQUENCE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq TO edit_sig;
+
+-- Table: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+
+-- DROP TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
+
+CREATE TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+(
+  id bigint NOT NULL DEFAULT nextval('m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_id_seq'::regclass),
+  ope_amgt character varying(80),  
+  destsurf character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  typeconso character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  typeajust character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  insee character varying(5) NOT NULL,
+  commune character varying(150) NOT NULL,
+  sup_ha real,
+  observ character varying(254),  
+  src_geom character varying(2) NOT NULL DEFAULT '00' ::bpchar,
+  src_date character varying(4) NOT NULL DEFAULT '0000' ::bpchar,
+  date_sai timestamp without time zone NOT NULL DEFAULT now(),  
+  date_maj timestamp without time zone,
+  geom geometry(MultiPolygon,2154),
+  
+  CONSTRAINT geo_scot_hyp_surf_a_conso_ajust_arc_pkey PRIMARY KEY (id)  
+)
+WITH (
+  OIDS=TRUE
+);
+ALTER TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+  OWNER TO sig_create;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc TO sig_create;
+GRANT ALL ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc TO create_sig;
+GRANT SELECT ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc TO edit_sig;
+COMMENT ON TABLE m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+  IS 'Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l''arrêt et l''approbation du SCOT de l''ARC (15 communes)';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.id IS 'Identifiant';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.ope_amgt IS 'Nom de l''opération d''aménagement';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.destsurf IS 'Destination d''usage de la surface à consommer';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.typeconso IS 'Type de consommation de surface';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.typeajust IS 'Type d''ajustement des surfaces entre l''arrêt et l''approbation du SCOT de l''ARC';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.insee IS 'Code INSEE';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.commune IS 'Nom de la commune';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.sup_ha IS 'Superficie en ha';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.observ IS 'Observations';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.src_geom IS 'Référentiel de saisie';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.src_date IS 'Année du millésime du référentiel de saisie';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.date_sai IS 'Horodatage de l''intégration en base de l''objet';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.date_maj IS 'Horodatage de la mise à jour en base de l''objet';
+COMMENT ON COLUMN m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc.geom IS 'Géométrie de l''objet';
+
+
+-- index spatial
+
+-- Index: m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_geom_gist
+
+-- DROP INDEX m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc_geom_gist;
+
+CREATE INDEX geo_scot_hyp_surf_a_conso_ajust_arc_geom_gist
+  ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+  USING gist
+  (geom);
 
 -- #################################################################### SUIVI SURF CONSO ##############################################################
 
