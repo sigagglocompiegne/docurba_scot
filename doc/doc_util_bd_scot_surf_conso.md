@@ -28,9 +28,10 @@
 
 . si l'interprétation du contenu du polygone montre une évolution de surface, aucune modification tant que la commune n'est pas entièrement modifiée
 
-. lorsque la commune est traitée, revenir sur les polygones non modifiés (non affectés à la "tache urbaine 2008) :
- 
- - cc
+. lorsque la commune est traitée, revenir sur les polygones non modifiés (non affectés à la "tache urbaine 2008) et appliquer les règles suivantes :
+
+. cc
+
 
 
 
