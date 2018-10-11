@@ -178,7 +178,9 @@ R:\Projets\Metiers\1809URBA-ARC-SCOT_suivi_surface\SUIVI_CONSO_SCOT_PLUI.qgz
 
 ### Traitement statistique
 
-(à écrire)
+Un Worklow FME a été produit pour sortir au format Excel les différentes tableaux d'exploitation statistique permettant de calculer les bilans et consommations par zone et agrégés à l'ARC.
+
+Ce fichier est stocké ici R:\Projets\Metiers\1809URBA-ARC-SCOT_suivi_surface\6-Traitement\PLUi_bilan_foncier_conso_SCoT.fmw
 
 
 ## Export Open Data
