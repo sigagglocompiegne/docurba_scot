@@ -23,6 +23,10 @@ Ce sont donc les documents de planifications locaux, le plan cadastral (PCI vect
 En plus des zones d'habitat et d'activités, les secteurs d'équipements publics (ex : cimetière) y compris sportifs (terrain) ou de loisirs (parc) ont été intégrés dans les surfaces consommées au titre des espaces naturels et agricoles.
 
 
+## Schéma fonctionnel
+
+![schema_fonctionnel](img/schema_fonctionnel_****.png)
+
 ## Classes d'objet
 
 L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanisme_reg
@@ -35,31 +39,7 @@ A des fins d'exploitation, les territoires concernés sont rassemblés dans une 
 
 --
 
-   `geo_scot_surf_conso_arc` : Surface considérée comme consommée au titre des espaces naturels et agricoles lors de l'approbation du SCOT fin 2012 de l'ARC (15 communes)
-
-|Nom attribut | Définition | Type | Valeurs par défaut |
-|:---|:---|:---|:---|
-|id|Identifiant|bigint| |
-|insee|Code INSEE|character(5)| |
-|commune|Libellé de la commune|character varying(150)| |
-|sup_ha|Superficie en ha|real| |
-|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
-|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
-|date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
-|date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
-|geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
-
-D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
-
-   `geo_scot_surf_conso_ccba` : Surface considérée comme **rétrospectivement** consommée fin 2012 au titre des espaces naturels et agricoles sur l'ex CCBA selon la méthodologie du SCOT de l'ARC
-   
-   `geo_scot_surf_conso_lach` : Surface considérée comme **rétrospectivement** consommée fin 2012 au titre des espaces naturels et agricoles sur la commune de Lachelle selon la méthodologie du SCOT de l'ARC
-
-   `geo_v_scot_surf_conso_arcba` : Vue des surfaces considérées comme consommées fin 2012 au titre des espaces naturels et agricoles sur le territoire de l'ARCBA et selon la méthodologie du SCOT de l'ARC
-
----
-
-   `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l'ARC (15 communes).
+ `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l'ARC (15 communes).
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
@@ -78,7 +58,7 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
 ---
 
-   `geo_scot_hyp_surf_a_conso_ajust_arc` : Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l'arrêt et l'approbation du SCOT de l'ARC (15 communes).
+ `geo_scot_hyp_surf_a_conso_ajust_arc` : Table géographique des ajustements des hypothèses de localisation sommaire des surfaces à consommer entre l'arrêt et l'approbation du SCOT de l'ARC (15 communes).
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
@@ -103,22 +83,26 @@ D'autres classes d'objet ont une structure identique à celle-ci, à savoir :
 
 |Nom attribut | Définition | Type | Valeurs par défaut |
 |:---|:---|:---|:---|
-|id|Identifiant|bigint| |
-|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
-|destsurf|Destination d'usage de la surface à consommer|character varying(2)|'00'::bpchar|
-|typeconso|Type de consommation de surface|character varying(2)|'00'::bpchar|
-|annee_deb|Année de début de période de consommation de la surface|character varying(4)|'0000'::bpchar|
-|annee_fin|Année de fin de période de consommation de la surface|character varying(4)|'0000'::bpchar|
+|gid|Identifiant|bigint NOT NULL| DEFAULT nextval('m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba_gid_seq'::regclass)|
 |insee|Code INSEE|character(5)| |
 |commune|Libellé de la commune|character varying(150)| |
-|sup_ha|Superficie en ha|real| |
-|src_geom|Référentiel de saisie|character varying(2)|'00'::bpchar|
-|src_date|Année du millésime du référentiel de saisie|character varying(4)|'0000'::bpchar|
 |date_sai|Horodatage de l'intégration en base de l'objet|timestamp without time zone|now()|
 |date_maj|Horodatage de la mise à jour en base de l'objet|timestamp without time zone| |
+|op_sai|Personne ayant saisie ou modifié les données |character varying(50)| |
+|destdomi|Destination d'usage dominant de la surface à consommer|character varying(2)|'00'|
+|a_conso_d|Année de début de période de consommation de la surface|integer||
+|a_conso_d|Année de fin de période de consommation de la surface|integer||
+|typeconso|Type de consommation de surface|character varying(2)|'00'|
+|a_dru_d|Année de début de période de consommation de la surface dans le cas d'une densification ou d'un renouvellement urbain|integer||
+|a_dru_d|Année de fin de période de consommation de la surface dans le cas d'une densification ou d'un renouvellement urbain|integer||
+|src_geom|Référentiel de saisie|character varying(2)|'00'|
+|src_date|Année du millésime du référentiel de saisie|integer NOT NULL||
+|sup_ha|Superficie en ha|double precision| |
+|ope_amgt|Nom de l'opération d'aménagement|character varying(80)| |
+|observ|Observations|character varying(254)| |
 |geom|Géométrie de l'objet|geometry(MultiPolygon,2154)| |
 
-Cette classe d'objet est destinée à être modifiée contrairement aux précédentes, ceci afin d'effectuer le suivi de la consommation des surfaces du SCOT
+Cette classe d'objet est destinée à être modifiée contrairement aux précédentes, ceci afin d'effectuer le suivi de la consommation des surfaces du SCOT.
 
 ---
 
@@ -162,6 +146,7 @@ Valeurs possibles :
 |02|Densification|Consommation de surface de type "dent creuse" en zone U|
 |03|Renouvellement urbain|Surface précédemment consommée et faisant l'objet d'une opération de renouvellement urbain, en zone U ou AU|
 |99|Autre| |
+|ZZ|Non concerné| |
 
 ---
 
@@ -185,7 +170,4 @@ Valeurs possibles :
 
 ![mcd](img/MCD.png)
 
-## Schéma fonctionnel
-
-![schema_fonctionnel](img/schema_fonctionnel_****.png)
 
