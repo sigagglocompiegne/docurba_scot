@@ -70,6 +70,10 @@ Type de consommation : non concerné
 
 Opération d'aménagement : rien
 
+
+SI UN DOUTE SUBSISTE FAIRE UNE ANNOTATION. CE CAS SERA TRAITE A LA FIN DU TRAITEMENT DE TOUTES LES COMMUNES.
+
+
 ### 2-Compléter la "tache urbaine 2012" :
 
 * Principes : 
