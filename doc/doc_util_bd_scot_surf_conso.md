@@ -4,9 +4,9 @@
 
 ## Etapes mises en oeuvre pour compléter les consommations issues du SCoT et réutilisation pour le PLUi :
 
-### * 1-De la "tache urbaine" 2012 à la "tache urbaine" 2008 :
+### 1-De la "tache urbaine" 2012 à la "tache urbaine" 2008 :
 
-Principes : 
+* Principes : 
 
 . réaliser ce travail commune par commune
 . réaffecter les dates de début et fin de consommation des polygones 
