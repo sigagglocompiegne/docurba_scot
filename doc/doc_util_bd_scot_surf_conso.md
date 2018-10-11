@@ -18,7 +18,9 @@
 
 . si une zone de densification ou de renouvellement urbain est remarquée faire une annotation (sera traité à l'étape 4)
 
-* Comment : avec le support Ortho 2008 de l'IGN
+* Comment : 
+
+ . avec le support Ortho 2008 de l'IGN
 
 * Règles : 
 
