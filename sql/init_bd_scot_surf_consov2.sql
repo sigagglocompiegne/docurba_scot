@@ -87,7 +87,39 @@ INSERT INTO m_urbanisme_reg.lt_scot_typeconso(
     ('99','Autre',''),
     ('ZZ','Non concerné','Espace urbain historique déjà en place');  
 
+-- ################################################################# Domaine valeur - lt_scot_typeajust #############################################
 
+-- Table: m_urbanisme_reg.lt_scot_typeajust
+
+-- DROP TABLE m_urbanisme_reg.lt_scot_typeajust;
+
+CREATE TABLE m_urbanisme_reg.lt_scot_typeajust
+(
+  code character (2) NOT NULL,
+  valeur character varying(80) NOT NULL,
+  CONSTRAINT lt_scot_typeajust_pkey PRIMARY KEY (code)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE m_urbanisme_reg.lt_scot_typeajust
+  OWNER TO sig_create;
+GRANT ALL ON TABLE m_urbanisme_reg.lt_scot_typeajust TO sig_create;
+GRANT SELECT ON TABLE m_urbanisme_reg.lt_scot_typeajust TO read_sig;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE m_urbanisme_reg.lt_scot_typeajust TO edit_sig;
+
+COMMENT ON TABLE m_urbanisme_reg.lt_scot_typeajust
+  IS 'Liste des valeurs permettant de décrire le type d''ajustement opéré sur les hypothèses de surfaces à consommer pour le SCOT';
+COMMENT ON COLUMN m_urbanisme_reg.lt_scot_typeajust.code IS 'Code';
+COMMENT ON COLUMN m_urbanisme_reg.lt_scot_typeajust.valeur IS 'Valeur';
+
+INSERT INTO m_urbanisme_reg.lt_scot_typeajust(
+            code, valeur)
+    VALUES
+    ('00','Non renseigné'),
+    ('01','Suppression'),
+    ('02','Ajout'),
+    ('99','Autre');   
 
 
 -- ####################################################################################################################################################
