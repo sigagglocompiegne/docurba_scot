@@ -30,8 +30,22 @@
 
 . 3 - lorsque la commune est traitée, revenir sur les polygones non modifiés (non affectés à la "tache urbaine 2008) et appliquer les règles suivantes :
 
-. 
+. le polygone est entièrement concerné par une consommation entre 2008 et 2012, pas de découpe et affectation des valeurs suivantes :
 
+Date de début de consommation : 2008
+Date de fin de consommation : 2012
+Destination : indiquer la valeur correspondante (si possible)
+Type de consommation : Etalement
+Opération d'aménagement : indiquer le nom si nécessaire
 
+. le polygone n'est pas entièrement concerné par une consommation entre 2008 et 2012, une découpe est nécessaire :
 
+- en respectant les limites du cadastre à l'intérieur des polygones de la "tache urbaine 2012",
+- affecter les valeurs suivantes pour le polygone consommé entre 2008 et 2012
+
+Date de début de consommation : 2008
+Date de fin de consommation : 2012
+Destination : indiquer la valeur correspondante (si possible)
+Type de consommation : Etalement
+Opération d'aménagement : indiquer le nom si nécessaire
 
