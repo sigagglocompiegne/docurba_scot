@@ -10,11 +10,11 @@
 
 . réaliser ce travail commune par commune
 . réaffecter les dates de début et fin de consommation des polygones 
-. * les polygones concernés par une surcace calculée au SCoT ne peuvent pas être *
+####. les polygones concernés par une surcace calculée au SCoT ne peuvent pas être *
 
-Comment : avec le référentiel Ortho 2008 de l'IGN
+* Comment : avec le référentiel Ortho 2008 de l'IGN
 
-Règles : 
+* Règles : 
 . si l'interprétation du contenu du polygone ne montre pas d'évolutions de surface, celui-ci doit prendre la valeur date de fin de commation = 2008 et rien en date de début de consommation
 . si l'interprétation du contenu du polygone montre une évolution de surface, aucune modification attributaire 
 
