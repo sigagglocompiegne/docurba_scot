@@ -18,11 +18,11 @@
 
 . si une zone de densification ou de renouvellement urbain est remarquée faire une annotation (sera traité à l'étape 4)
 
-* Comment : 
+* **Comment** : 
 
  . avec le support Ortho 2008 de l'IGN
 
-* Règles : 
+* **Règles** : 
 
 . 1 - si l'interprétation du contenu du polygone ne montre pas d'évolutions de surface, celui-ci doit prendre la valeur date de fin de consommation = 2008 et rien en date de début de consommation
 
@@ -76,15 +76,15 @@ Opération d'aménagement : rien
 
 ### 2-Compléter la "tache urbaine 2012" :
 
-* Principes : 
+* **Principes** : 
 
 . compléter les polygones de consommation non présents dans la "tache urbaine 2012" 
 
-* Comment : 
+* **Comment** : 
 
-.  . avec le support Ortho 2013 de GéoPicardie
+. avec le support Ortho 2013 de GéoPicardie
 
-* Règles : 
+* **Règles** : 
 
 . les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
 . adopter les règles du point 1 pour une cohérence des données
@@ -92,31 +92,31 @@ Opération d'aménagement : rien
 
 ### 3-Compléter la "tache urbaine 2012" par les infrastructures présentes dans les zones AU inscrites au PLUi :
 
-* Principes : 
+* **Principes** : 
 
 . compléter les polygones de consommation non présent dans la "tache urbaine 2012" 
 
-* Comment : 
+* **Comment** : 
 
 . avec le support Ortho 2013 de GéoPicardie
 . avec les zones AU inscrites au PLUi
 
-* Règles : 
+* **Règles** : 
 
 . les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
 . adopter les règles du point 1 pour une cohérence des données
 
 ### 4-Compléter la "tache urbaine 2012" par les zones de densification et de renouvellement urbain :
 
-* Principes : 
+* **Principes** : 
 
 . découper la "tache urbaine 2012" par des polygones délimitant les zones de densification et renouvellement urbain 
 
-* Comment : 
+* **Comment** : 
 
 . revenir sur les annotations inscrites dans l'étape 1
 . à compéter
 
-* Règles : 
+* **Règles** : 
 
 . à compléter
