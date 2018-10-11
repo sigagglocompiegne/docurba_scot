@@ -33,19 +33,86 @@
 . le polygone est entièrement concerné par une consommation entre 2008 et 2012, pas de découpe et affectation des valeurs suivantes :
 
 Date de début de consommation : 2008
+
 Date de fin de consommation : 2012
+
 Destination : indiquer la valeur correspondante (si possible)
+
 Type de consommation : Etalement
+
 Opération d'aménagement : indiquer le nom si nécessaire
 
-. le polygone n'est pas entièrement concerné par une consommation entre 2008 et 2012, une découpe est nécessaire :
+
+. le polygone n'est pas entièrement concerné par une consommation entre 2008 et 2012, une découpe est nécessaire (attention, les limites extérieures de la tache urbaine ne peuvent pas être modifiées) :
 
 - en respectant les limites du cadastre à l'intérieur des polygones de la "tache urbaine 2012",
 - affecter les valeurs suivantes pour le polygone consommé entre 2008 et 2012
 
 Date de début de consommation : 2008
+
 Date de fin de consommation : 2012
+
 Destination : indiquer la valeur correspondante (si possible)
+
 Type de consommation : Etalement
+
 Opération d'aménagement : indiquer le nom si nécessaire
 
+- affecter les valeurs suivantes pour le polygone sans évolution
+
+Date de début de consommation : rien
+
+Date de fin de consommation : 2008
+
+Destination : indiquer la valeur correspondante (si possible)
+
+Type de consommation : non concerné
+
+Opération d'aménagement : rien
+
+### 2-Compléter la "tache urbaine 2012" :
+
+* Principes : 
+
+. compléter les polygones de consommation non présents dans la "tache urbaine 2012" 
+
+* Comment : 
+
+.  . avec le support Ortho 2013 de GéoPicardie
+
+* Règles : 
+
+. les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
+. adopter les règles du point 1 pour une cohérence des données
+
+
+### 3-Compléter la "tache urbaine 2012" par les infrastructures présentes dans les zones AU inscrites au PLUi :
+
+* Principes : 
+
+. compléter les polygones de consommation non présent dans la "tache urbaine 2012" 
+
+* Comment : 
+
+. avec le support Ortho 2013 de GéoPicardie
+. avec les zones AU inscrites au PLUi
+
+* Règles : 
+
+. les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
+. adopter les règles du point 1 pour une cohérence des données
+
+### 4-Compléter la "tache urbaine 2012" par les zones de densification et de renouvellement urbain :
+
+* Principes : 
+
+. découper la "tache urbaine 2012" par des polygones délimitant les zones de densification et renouvellement urbain 
+
+* Comment : 
+
+. revenir sur les annotations inscrites dans l'étape 1
+. à compéter
+
+* Règles : 
+
+. à compléter
