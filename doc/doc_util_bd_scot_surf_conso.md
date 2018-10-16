@@ -110,7 +110,7 @@ Opération d'aménagement : rien
 . adopter les règles du point 1 pour une cohérence des données
 
 . les infrastructures de transports (route + voie ferrée) sont intégrés avec leurs accotements
-. les routes en dehors de la tache urbaine (si pas d'emprise clairement identifiée) correspondent à un tampon de 4m autour du filaire de voie. Les carrefours et limites de communes doivent faire l'oibjet d'un traitement manuel.
+. les routes en dehors de la tache urbaine (si pas d'emprise clairement identifiée) correspondent à un tampon de 4m autour du filaire de voie voire 3m pour les routes en forêt. Les carrefours et limites de communes doivent faire l'objet d'un traitement manuel.
 
 ### 2.3-Compléter la "tache urbaine 2012" par les zones de densification et de renouvellement urbain :
 
