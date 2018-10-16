@@ -75,6 +75,7 @@ Opération d'aménagement : rien
 
 
 ### 2-Compléter la "tache urbaine 2012" :
+### 2.1-par les infrastructures présentes dans les zones AU inscrites au PLUi et dans le reste de la commune :
 
 * **Principes** : 
 
@@ -88,9 +89,11 @@ Opération d'aménagement : rien
 
 . les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
 . adopter les règles du point 1 pour une cohérence des données
+. les hangars agricoles isolés ne sont pas intégrés
+. les infrastructures de transports (route + voie ferrée) sont intégrés avec leurs accotements
+. l'habitat agricole est pris en comte (ferme ou logement sur parcelle agricole)
 
 
-### 3-Compléter la "tache urbaine 2012" par les infrastructures présentes dans les zones AU inscrites au PLUi :
 
 * **Principes** : 
 
@@ -106,7 +109,7 @@ Opération d'aménagement : rien
 . les polygones existant ne peuvent pas être modifiés, les compléments ne peuvent s'effectuer qu'avec un ajout de polygones.
 . adopter les règles du point 1 pour une cohérence des données
 
-### 4-Compléter la "tache urbaine 2012" par les zones de densification et de renouvellement urbain :
+### 2.2-Compléter la "tache urbaine 2012" par les zones de densification et de renouvellement urbain :
 
 * **Principes** : 
 
