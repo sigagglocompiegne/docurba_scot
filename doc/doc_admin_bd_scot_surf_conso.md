@@ -21,6 +21,7 @@ Le type de consommation des surfaces est déterminé de cette façon :
 
 Ce sont donc les documents de planifications locaux, le plan cadastral (PCI vecteur) et des orthophotoplans qui ont servis principalement d'appui pour constituer l'enveloppe de la zone déjà consommée en 2012.
 En plus des zones d'habitat et d'activités, les secteurs d'équipements publics (ex : cimetière) y compris sportifs (terrain) ou de loisirs (parc) ont été intégrés dans les surfaces consommées au titre des espaces naturels et agricoles.
+Pour la partie habitat, sont intégrées dans les zones consommées, les fonds de jardins, les logements des exploitations agricoles mais pas les hangars.
 
 
 ## Schéma fonctionnel
@@ -33,10 +34,8 @@ L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanis
 
 --
 
-Initialement, les classes d'objet ne concernaient que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
-Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA de nouvelles classes se sont ajoutées pour ces territoires, afin de ne pas mélanger des informations constituées.
-A des fins d'exploitation, les territoires concernés sont rassemblés dans une vue.
-
+Initialement, la donnée ne consernait que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
+Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA, la donnée a été étendue sur ces territoire de façon rétrospective et selon la même méthodologie.
 --
 
  `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l'ARC (15 communes).
