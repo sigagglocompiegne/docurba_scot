@@ -11,12 +11,17 @@
 ## Zone urbaine prise en compte :
 
 * Les infrastructures :
+
 . les routes et les voie ferrées sont intégrées avec leurs accotements si ils sont clairement identifiables
+
 . les routes et les voies ferrées, si leurs accotements ne sont pas clairement identifiés, correspondent à un tampon de 4m autour du filaire de voie, voire 3m pour les routes en forêt. Les carrefours et limites de communes doivent faire l'objet d'un traitement manuel.
+
 . dans le cas d'une route ou d'une voie ferrée délimitée par un fuseau bien identifiable (par le cadastre par exemple) il est concidéré comme une infrastructure dans son emsemble
 
-* Les constructions agrioles :
+* Les constructions agricoles :
+
 . les hangars agricoles isolés ne sont pas à intégrer
+
 . l'habitat agricole est pris en compte (ferme ou logement sur parcelle agricole)
 
 ## Etapes mises en oeuvre pour compléter les consommations issues du SCoT et réutilisation pour le PLUi :
@@ -135,8 +140,5 @@ Opération d'aménagement : rien
 * **Comment** : 
 
 . revenir sur les annotations inscrites dans l'étape 1
-. à compéter
 
-* **Règles** : 
 
-. à compléter
