@@ -6,19 +6,19 @@
 
 * **Densification** :
 
-
+|Schéma|Définition|
 |:---|:---|
-|||
+||délimitation de l'emprise foncière de toutes nouvelles constructions dans la tache urbaine existante. Il peut s'agir d'une nouvelle construction sur une parcelle vierge (habitat, activité, ...), d'une division parcellaire avec une nouvelle construction, d'une démolition suivi d'une reconstruction 1+n sur la même emprise foncière (une maison détruite et 2 reconstruites, voire 1 maison détruite pour 1 immeuble construit).
 
 * **Renouvellement urbain** :
 
-|||
+|Schéma|Définition|
 |:---|:---|
-|||
+||délimitation de l'emprise foncière d'une requalification urbaine d'un ilôt, d'une friche ou d'un quartier dans la tache urbain existante. Ce renouvellement implique généralement la création d'une nouvelle voirie, de nouveaux bâtiments et d'espace public|
 
 * **Etalement** :
 
-|||
+|Schéma|Définition|
 |:---|:---|
 |||
 
