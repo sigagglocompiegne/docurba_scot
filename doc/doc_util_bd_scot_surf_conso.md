@@ -5,6 +5,10 @@
 ## Définition des termes :
 
 * **Densification** :
+
+|:---|:---|
+|||
+
 * **Renouvellement urbain** :
 * **Etalement** :
 
