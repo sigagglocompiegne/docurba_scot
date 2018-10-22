@@ -6,7 +6,7 @@
 
 * **Densification** :
 
-|:---|:---|
+|---|---|
 |||
 
 * **Renouvellement urbain** :
