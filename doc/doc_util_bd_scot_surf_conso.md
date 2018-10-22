@@ -4,13 +4,13 @@
 
 ## Définition des termes :
 
-* Densification :
-* Renouvellement urbain :
-* Etalement :
+* **Densification** :
+* **Renouvellement urbain** :
+* **Etalement** :
 
 ## Zone urbaine prise en compte :
 
-* Les infrastructures :
+* **Les infrastructures** :
 
 . les routes et les voie ferrées sont intégrées avec leurs accotements si ils sont clairement identifiables
 
@@ -18,7 +18,7 @@
 
 . dans le cas d'une route ou d'une voie ferrée délimitée par un fuseau bien identifiable (par le cadastre par exemple) il est concidéré comme une infrastructure dans son emsemble
 
-* Les constructions agricoles :
+* **Les constructions agricoles** :
 
 . les hangars agricoles isolés ne sont pas à intégrer
 
