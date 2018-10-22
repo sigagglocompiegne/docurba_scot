@@ -11,7 +11,16 @@
 |||
 
 * **Renouvellement urbain** :
+
+|||
+|:---|:---|
+|||
+
 * **Etalement** :
+
+|||
+|:---|:---|
+|||
 
 ## Zone urbaine prise en compte :
 
