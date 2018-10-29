@@ -36,6 +36,7 @@ L'ensemble des classes d'objets de gestion est stocké dans le schéma m_urbanis
 
 Initialement, la donnée ne consernait que le territoire de l'ARC lors de l'approbation du SCOT fin 2012, soit 15 communes.
 Avec l'évolution territoriale et l'élargissement à la commune de Lachelle et la CCBA, la donnée a été étendue sur ces territoire de façon rétrospective et selon la même méthodologie.
+
 --
 
  `geo_scot_hyp_surf_a_conso_arc` : Table géographique des hypothèses de localisation sommaire des surfaces à consommer approuvées au SCOT fin 2012 de l'ARC (15 communes).
