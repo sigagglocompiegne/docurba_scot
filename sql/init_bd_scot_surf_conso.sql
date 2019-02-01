@@ -573,11 +573,11 @@ ADD CONSTRAINT lt_traite_sig_fkey FOREIGN KEY (traite_sig)
 
 -- *** calcul_sup_ha
 
--- Trigger: t_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
+-- Trigger: t_t1_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
 
--- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc;
+-- DROP TRIGGER t_t1_geo_scot_hyp_surf_a_conso_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc;
 
-CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_arc_sup_ha
+CREATE TRIGGER t_t1_geo_scot_hyp_surf_a_conso_arc_sup_ha
   BEFORE INSERT OR UPDATE OF geom
   ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_arc
   FOR EACH ROW
@@ -588,11 +588,11 @@ CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_arc_sup_ha
 
 -- *** calcul_sup_ha
 
--- Trigger: t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+-- Trigger: t_t2_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
 
--- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
+-- DROP TRIGGER t_t2_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
 
-CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha
+CREATE TRIGGER t_t2_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha
   BEFORE INSERT OR UPDATE OF geom
   ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
   FOR EACH ROW
@@ -604,11 +604,11 @@ CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_sup_ha
 /* ***** Attention, à l'échelle cadastrale, problème de calage de geomètrie du referentiel osm, propre topologiquement en revanche *****
 
 
--- Trigger: t_geo_scot_hyp_surf_a_conso_ajust_arc_insee on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
+-- Trigger: t_t3_geo_scot_hyp_surf_a_conso_ajust_arc_insee on m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
 
--- DROP TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_insee ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
+-- DROP TRIGGER t_t3_geo_scot_hyp_surf_a_conso_ajust_arc_insee ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc;
 
-CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_insee
+CREATE TRIGGER t_t3_geo_scot_hyp_surf_a_conso_ajust_arc_insee
   BEFORE INSERT OR UPDATE OF geom
   ON m_urbanisme_reg.geo_scot_hyp_surf_a_conso_ajust_arc
   FOR EACH ROW
@@ -622,7 +622,7 @@ CREATE TRIGGER t_geo_scot_hyp_surf_a_conso_ajust_arc_insee
 
 -- Trigger de contrôle de saisie et amorce de la séquence
 
- CREATE OR REPLACE FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s()
+ CREATE OR REPLACE FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s()
   RETURNS trigger AS
 $BODY$BEGIN
 
@@ -646,12 +646,12 @@ RETURN NEW;
 END;$BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION m_urbanisme_reg.r_sup_ha_maj()
+ALTER FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s()
   OWNER TO sig_create;
-GRANT EXECUTE ON FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s() TO public;
-GRANT EXECUTE ON FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s() TO sig_create;
-GRANT EXECUTE ON FUNCTION m_urbanisme_reg.r_ctrl_suivi_conso_s() TO create_sig;
-COMMENT ON FUNCTION m_urbanisme_reg.r_sup_ha_maj() IS 'Fonction dont l''objet est de contrôler la saisie et de remonter des messages d''erreurs à QGIS';
+GRANT EXECUTE ON FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s() TO public;
+GRANT EXECUTE ON FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s() TO sig_create;
+GRANT EXECUTE ON FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s() TO create_sig;
+COMMENT ON FUNCTION m_urbanisme_reg.ft_m_ctrl_suivi_conso_s() IS 'Fonction dont l''objet est de contrôler la saisie et de remonter des messages d''erreurs à QGIS';
 
 -- Trigger: t_t1_geo_scot_surf_suivi_conso_arcba_ctrl on m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
 
@@ -661,7 +661,7 @@ CREATE TRIGGER t_t1_geo_scot_surf_suivi_conso_arcba_ctrl
   BEFORE INSERT OR UPDATE
   ON m_urbanisme_reg.geo_scot_surf_suivi_conso_arcba
   FOR EACH ROW
-  EXECUTE PROCEDURE m_urbanisme_reg.r_ctrl_suivi_conso_s(); 
+  EXECUTE PROCEDURE m_urbanisme_reg.ft_m_ctrl_suivi_conso_s(); 
 
 
 
