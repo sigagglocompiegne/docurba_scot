@@ -1,4 +1,4 @@
-![picto](/doc/img/Logo_web-GeoCompiegnois.png)
+![picto](/doc/img/geocompiegnois_2020_reduit_v2.png)
 
 # Schéma de COhérence Territorial (SCOT) - consommation de surfaces
 # Plan Local d'Urbanisme Intercommunal (PLUi) - bilan des consommations foncières
